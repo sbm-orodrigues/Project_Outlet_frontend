@@ -1,0 +1,11 @@
+<div class="RegistrationForm">
+    <p class="Title"> Cadastro </p>
+    <input type="text" placeholder="Nome" [(ngModel)]="registrationData.firstName" class="FirstName">
+    <input type="text" placeholder="Sobrenome" [(ngModel)]="registrationData.lastName" class="LastName">
+    <input type="text" placeholder="Telefone" [(ngModel)]="registrationData.phone" class="Phone">
+    <input type="text" placeholder="Е-mail" [(ngModel)]="registrationData.email" class="Email">
+    <input type="password" placeholder="Senha" [(ngModel)]="registrationData.password" class="Password">
+    <input type="password" placeholder="Confirme a senha" [(ngModel)]="registrationData.passwordConfirm" class="PasswordConfirm">
+    <button class="RegisterButton" (click)="register()"> Registrar </button>
+    <p class="LogIn" (click)="navigateTo('login')">Vá para o login</p>
+</div>

@@ -1,0 +1,13 @@
+<html>
+<head></head>
+<body>
+<app-nav-bar></app-nav-bar>
+<div class="PageContents">
+    <p class="Title">Pagamento</p>
+    <p class="PaymentAmount">Valor do pedido: {{price.toFixed(2)}}R$</p>
+    <ngx-paypal [config]="paypalConfigService.payPalConfig!"></ngx-paypal>
+    <p class="CancelPayment" (click)="cancelPayment()">Cancelar Pedido</p>
+</div>
+<app-footer-bar></app-footer-bar>
+</body>
+</html>

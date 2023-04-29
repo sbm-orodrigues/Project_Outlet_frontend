@@ -1,0 +1,16 @@
+<div class="NavBar">
+    <button class="ProfileButton" (click)="navigateProfile()">{{getLoginButtonText()}}</button>
+    <ul>
+      <img class="ProfileButton" src="../../assets/logo.png">
+        <li (click)="navigateStore('A')"><a>Início</a></li>
+        <li (click)="navigateStore('M')"><a>Masculino</a></li>
+        <li (click)="navigateStore('F')"><a>Feminino</a></li>
+        <li (click)="navigateStore('K')"><a>Infantil</a></li>
+    </ul>
+    <p class="ItemsInCartNumber">
+        {{getCartItemsCount()}}
+    </p>
+    <a class="CartLink" (click)="navigateTo('cart')">
+        <img src="../../../../assets/cart.png" class="NavBarCart">
+    </a>
+</div>

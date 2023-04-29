@@ -1,0 +1,29 @@
+<html>
+<head></head>
+<body>
+    <app-nav-bar></app-nav-bar>
+    <app-notification #notification></app-notification>
+    <br>
+    <div class="BuyShoe">
+        <div class="ShoeImage">
+            <img src="{{shoe?.PicturePath}}">
+            <p class="ShoeTextDescription">
+                {{shoe === null || shoe.Description.length <=0 ?"( Não encontramos descrição... )" :shoe.Description}}
+            </p>
+        </div>
+
+        <div class="ShoeDescription">
+            <p class="ShoeName">{{shoe?.Name}}</p>
+            <p class="ShoeGender">
+                {{shoe?.getGenderDescription()}} sobre {{shoe?.Brand}}
+            </p>
+            <p class="ShoePrice">{{shoe?.Price}} R$.</p>
+            <p class="SelectSize">Selecione o tamanho:</p>
+            <p class="SizeButtons">
+                <app-size-buttons [notification]="notification" [shoe]="shoe"></app-size-buttons>
+            </p>
+        </div>
+    </div>
+    <app-footer-bar></app-footer-bar>
+</body>
+</html>

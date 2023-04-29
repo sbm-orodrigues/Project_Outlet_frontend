@@ -1,0 +1,9 @@
+<div class="RegistrationForm">
+    <p class="Title"> Conta </p>
+    <p class="Email"><img src="../../assets/emailIcon.png">{{email}}</p>
+    <input type="text" placeholder="Nome" [(ngModel)]="firstName" class="FirstName">
+    <input type="text" placeholder="Sobrenome" [(ngModel)]="lastName" class="LastName">
+    <input type="text" placeholder="Telefone" [(ngModel)]="phone" class="Phone">
+    <button class="UpdateButton" (click)="update()"> Atualizar </button>
+    <p class="Exit" (click)="exit()"> Sair </p>
+</div>

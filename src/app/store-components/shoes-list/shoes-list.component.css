@@ -1,0 +1,133 @@
+.ShoeName{
+    font-family: Arial, Helvetica, sans-serif;
+    size: 12 px;
+    font-size: 24px;
+    font-weight: bold;
+    overflow: hidden;
+    padding-left: 5px;
+}
+
+.ShoePrice{
+    font-family: Arial, Helvetica, sans-serif;
+    size: 12px;
+    font-size: 22px;
+    padding-left: 5px;
+}
+
+.ShoeGender{
+    font-family: Arial, Helvetica, sans-serif;
+    size: 12px;
+    font-size: 20px;
+    color: grey;
+}
+
+.ShoeFrame{
+    border-radius: 3px;
+    border-style: groove;
+    border-color: black;
+    padding: 0px;
+    resize: none;
+    height: 40vw;
+    width: 300px; 
+    table-layout: fixed; 
+}
+  
+.ShoeFrame td {
+    width: 100%; 
+    overflow: hidden; 
+    white-space: nowrap; 
+    text-overflow: ellipsis; 
+
+}
+
+/*
+SshoesList{
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    justify-content: center;
+    margin: auto;
+}*/
+
+.ShoesItem{
+    margin: auto;
+    padding: 0.5%;
+    list-style: none;
+    /*flex: 0 0 33.333333%;*/
+    display: inline;
+    float: left;
+}
+
+.ShoeImage{
+    width: 20vw;
+    height: 20vw;
+    object-fit: scale-down;
+    background-size: cover;
+    align-self: center;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.BuyButton{
+    position: relative;
+    right: 5%;
+    float: right;
+    width: 5vw;
+    height: 3vw;
+
+    border: 1px;
+    border-radius: 1px;
+    border-style: groove;
+
+    background-color: white;
+    color: black;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.BuyButton:hover{
+    background-color: black;
+    color: white;
+}
+
+.BuyButton:active{
+    background-color: lightgrey;
+    color: black;
+}
+
+
+.ShoesListContainer {
+    display: flex;
+    flex-direction: column;
+}
+  
+.ArrowContainer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: auto;
+}
+  
+.PreviousArrow, .NextArrow {
+    cursor: pointer;
+    margin-left: 16px;
+    margin-right: 16px;
+    cursor: pointer;
+    margin: 0 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 44px;
+    font-weight: bold;
+}
+
+.PageNumber input {
+    display: block;
+    margin-top: 5px;
+    font-family: sans-serif;
+    font-size: 18px;
+    width: 50px;
+    height: 30px;
+    border-radius: 15px;
+    border: 2px solid black;
+    text-align: center;
+}

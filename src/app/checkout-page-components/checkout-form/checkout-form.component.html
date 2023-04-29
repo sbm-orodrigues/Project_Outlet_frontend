@@ -1,0 +1,46 @@
+<div class="ContactInfo">
+    <p class="Title"> Dados de cobrança </p>
+    <input placeholder="Nome" class="InputBox" name="firstName" id="firstName">
+    <input placeholder="Sobrenome" class="InputBox" name="lastName" id="lastName">
+    <input placeholder="Telefone" class="InputBox"  name="phone" id="phone">
+    <input placeholder="Е-mail" class="InputBox"  name="email" id="email">
+</div>
+<div class="DeliveryInfo">
+    <p class="Title"> Entrega </p>
+    <p>
+        <input type="radio" name="courier" value="Econt" checked (click)="selectCourier('Econt')">
+        Correios PAC (+{{ECONT_PRICE}}R$)
+    </p>
+    <p>
+        <input type="radio" name="courier" value="Speedy" (click)="selectCourier('Speedy')">
+        SEDEX (+{{SPEEDY_PRICE}}R$)
+    </p>
+    <p class="Title"> Modo de entrega </p>
+    <p>
+        <input type="radio" name="deliveryMethod" value="address" checked (click)="selectDeliveryMethod('address')">
+        Endereço de cobrança (+{{ADDRESS_DELIVERY_PRICE}}R$)
+    </p>
+    <p>
+        <input type="radio" name="deliveryMethod" value="office" (click)="selectDeliveryMethod('office')">
+        Retirada {{selectedCourier==='Econt'?'Na loja':'Correios'}}
+    </p>
+    <p class="Title"> Detalhes da entrega </p>
+    <input placeholder=
+    "{{deliveryMethod==='address'?'Endereço para entrega':'Retirar em '+(selectedCourier==='Econt'?'Econômico':'Speedy')}}"
+    class="InputBox">
+    <input placeholder="Cidade" class="InputBox">
+    <input placeholder="CEP" class="InputBox">
+    <input placeholder="País" class="InputBox">
+</div>
+<div class="PaymentType">
+    <p class="Title"> Forma de Pagamento </p>
+    <p>
+        <input type="radio" name="paymentType" value="Card" checked (click)="selectPaymentMethod('Card')">
+        Cartão de crédito
+    </p>
+    <p>
+        <input type="radio" name="paymentType" value="Cash" (click)="selectPaymentMethod('Cash')">
+        Boleto
+    </p>
+    <button (click)="finishCheckout()"> Finalizar </button>
+</div>

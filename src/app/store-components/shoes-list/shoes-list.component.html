@@ -1,0 +1,23 @@
+<div class="ShoesListContainer">
+<ul calss ="ShoesList">
+    <li *ngFor="let i of displayedShoes?.values()" class="ShoesItem">
+        <table class="ShoeFrame">
+            <tr><td><img class="ShoeImage" src= "{{i.PicturePath}}" ></td></tr>
+            <tr><td class="ShoeName"><p>{{i.Name}}</p></td></tr>
+            <tr><td class="ShoeGender"><p>{{i.getGenderDescription()}} {{i.Brand}}</p></td></tr>
+            <tr><td class="ShoePrice"> <p> {{i.Price}} R$.
+            <button class="BuyButton" (click)="buyShoe(i.Id)" >Comprar</button>
+            </p></td></tr>
+        </table>
+    </li>
+</ul>
+
+<p class="ArrowContainer">
+    <span class="PreviousArrow" (click)="navigateToPage(this.pageNumber-1)">&lt;</span>
+    <span class="PageNumber"><input type="text"
+        (keyup.enter)="navigateToPage(convertToPositiveInt($event.target))"
+        (blur)="navigateToPage(convertToPositiveInt($event.target))"
+        [value]="this.pageNumber" inputmode="numeric"></span>
+    <span class="NextArrow" (click)="navigateToPage(this.pageNumber+1)">&gt;</span>
+</p>
+</div>

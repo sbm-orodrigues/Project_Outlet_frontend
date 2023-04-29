@@ -1,0 +1,76 @@
+p, h4{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+}
+
+img{
+    width: 30px;
+    cursor: pointer;
+}
+
+.InactiveFilter{
+    border: 2px solid black;
+    border-radius: 50%;
+    padding: 5px;
+    width: 40px;
+}
+
+.ActiveFilter{
+    border: none;
+    width: 30px;
+}
+
+input[type="radio"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #000;
+    outline: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+  
+input[type="radio"]:checked {
+    background-color: #000;
+}
+  
+input[type="radio"]:hover {
+    transform: scale(1.2);
+}
+
+.FilterContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid black;
+    padding: 5px; 
+    display: flex;
+    justify-content: center;
+}
+
+.PriceFilter{
+    width: 20%;
+}
+
+.BrandFilter{
+    width: 20%;
+}
+
+.ColorFilter{
+    width: 60%;
+}
+
+.ColorOptions{
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-row-gap: 0;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.ColorOptions p {
+    margin-bottom: 0px;
+}

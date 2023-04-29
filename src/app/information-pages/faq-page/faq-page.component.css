@@ -1,0 +1,33 @@
+.PageContent p{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.PageContent{
+    width: 90%;
+    margin: auto;
+    min-height: 100vh;
+}
+
+.Answer{
+    margin: 20px; 
+}
+
+.Question{
+    font-weight: bold;
+}
+
+img{
+    display: block;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+}
+
+hr{
+    height: 1px;
+    background: linear-gradient(to right, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.8) 45%, rgba(0,0,0,0.8) 55%, rgba(0,0,0,0.2) 100%);
+    border: none;
+}

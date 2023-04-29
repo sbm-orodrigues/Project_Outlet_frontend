@@ -1,0 +1,36 @@
+p{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.PaymentAmount{
+    font-size: 20px;
+}
+
+.CancelPayment{
+    text-align: center;
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+    text-decoration: underline;
+    padding-top: 30px;
+}
+
+.CancelPayment:hover{
+    color: #555555;
+}
+
+
+.Title{
+    font-size: 26px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.PageContents{
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    min-height: 90vh;
+}
