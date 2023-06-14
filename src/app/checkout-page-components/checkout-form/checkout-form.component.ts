@@ -61,7 +61,7 @@ export class CheckoutFormComponent {
       this.router.navigate(["purchase-complete"]);
     }else if(this.paymentMethod === "Card"){
       let price = 0;
-      ShoppingCart.getAll().forEach(i => {
+      ShoppingCart.getAll().forEach((i: { count: number; shoeItem: { Price: number; }; }) => {
         price += i.count * i.shoeItem.Price;
       });
       this.totalPriceService.price = this.getTransportationCost() + price;

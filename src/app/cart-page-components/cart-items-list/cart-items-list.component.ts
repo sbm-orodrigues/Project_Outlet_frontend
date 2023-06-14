@@ -10,7 +10,7 @@ import { ShoppingCart } from 'src/model/ShoppingCart';
 })
 export class CartItemsListComponent {
   public displayedShoes:ShoeOrder[];
-  
+
   public constructor(){
     this.displayedShoes = ShoppingCart.getAll();
     console.log("Loading:", this.displayedShoes);
@@ -26,14 +26,14 @@ export class CartItemsListComponent {
     this.displayedShoes = ShoppingCart.getAll();
   }
 
-  public addQunatity(shoeOrder: ShoeOrder){
-    ShoppingCart.addById(shoeOrder.shoeItem.Id, shoeOrder.shoeSize)
-    this.displayedShoes = ShoppingCart.getAll();
+  // public addQunatity(shoeOrder: ShoeOrder){
+  //   ShoppingCart.addById(shoeOrder.shoeItem.Id, shoeOrder.shoeSize)
+  //   this.displayedShoes = ShoppingCart.getAll();
   }
 
-  public removeQuantity(shoeOrder: ShoeOrder){
-    ShoppingCart.removeQuantity(shoeOrder);
-    this.displayedShoes = ShoppingCart.getAll();
-  }
+  // public removeQuantity(shoeOrder: ShoeOrder){
+  //   ShoppingCart.removeQuantity(shoeOrder);
+  //   this.displayedShoes = ShoppingCart.getAll();
+  // }
 
-}
+// }

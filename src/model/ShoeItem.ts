@@ -1,8 +1,9 @@
+import { TesteServiceService } from 'src/service/TesteService.service';
 
 export enum Genders{
     M,
     F,
-    K
+    U
 }
 
 export enum Colors{
@@ -20,34 +21,38 @@ export enum Colors{
 }
 
 export class ShoeItem{
-    private id:number;
-    private name:string;
-    private price:number;
-    private picturePath:string;
-    private gender:Genders;
-    private color:Colors;
-    private sizes:string[];
-    private description:string;
-    private brand:string;
+  static has(itemId: number) {
+    throw new Error("Method not implemented.");
+  }
+     id:number;
+     name:string;
+     price:number;
+     photo:string;
+     gender:Genders;
+     color:Colors;
+     size:string[];
+     description:string;
+     brand:string;
+shoes_name: any;
 
     public constructor(
         id:number,
         name:string,
         price:number,
-        picturePath:string,
+        photo:string,
         gender:Genders,
         color:Colors,
-        sizes:string[],
+        size:string[],
         desciption:string,
         brand:string
         ){
         this.id = id;
         this.name = name;
         this.price = price;
-        this.picturePath = picturePath;
+        this.photo = photo;
         this.gender = gender;
         this.color = color;
-        this.sizes = sizes;
+        this.size = size;
         this.description= desciption;
         this.brand = brand;
     }
@@ -60,16 +65,16 @@ export class ShoeItem{
         return this.name;
     }
 
-    public get Sizes():string[]{
-        return this.sizes;
+    public get Size():string[]{
+        return this.size;
     }
 
     public get Price():number{
         return this.price;
     }
 
-    public get PicturePath():string{
-        return this.picturePath;
+    public get Photo():string{
+        return this.photo;
     }
 
     public get Gender():Genders{
@@ -95,8 +100,8 @@ export class ShoeItem{
                 return "Tênis Masculino";
             case Genders.F:
                 return "Tênis Feminino";
-            case Genders.K:
-                return "Infantil";
+            case Genders.U:
+                return "Unissex";
             default:
                 console.error("Unrecogniesd Shoe gender:",this.gender, " from ", this);
                 return "ERROR";

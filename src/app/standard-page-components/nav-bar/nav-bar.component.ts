@@ -1,6 +1,6 @@
+import { TesteServiceService } from 'src/service/TesteService.service';
 
 import { ShoeItem } from 'src/model/ShoeItem';
-import { ShoeItemData } from 'src/model/ShoeItemData';
 import { ShoppingCart } from 'src/model/ShoppingCart';
 import { Component, HostBinding } from '@angular/core';
 import {
@@ -22,7 +22,7 @@ import { CurrentUser } from 'src/model/CurrentUser';
 })
 export class NavBarComponent {
 
-  public constructor(private router: Router, private route: ActivatedRoute){
+  public constructor(private router: Router, private route: ActivatedRoute, private testeServiceService: TesteServiceService){
     ShoppingCart.setSessionStorage();
   }
 

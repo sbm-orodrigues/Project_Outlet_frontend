@@ -15,12 +15,12 @@ export class SizeButtonsComponent {
   selectedSize: string|null = null;
 
   public getSizes():string[]{
-    return this.shoe!.Sizes;
+    console.log(this.shoe!.size)
+    return this.shoe!.size;
   }
 
   public onButtonClick(size:string){
     this.selectedSize = size;
-    console.log("Clicked:",size, this);
   }
 
   public addToCart(){
@@ -30,7 +30,8 @@ export class SizeButtonsComponent {
     }
 
 
-    ShoppingCart.addById(this.shoe!.Id, this.selectedSize);
+    // ShoppingCart.addById(this.shoe!.Id, this.selectedSize);
+    console.log(this.shoe!.id, this.selectedSize)
     this.showNotification("Adicionado com sucesso ao carrinho!");
   }
 

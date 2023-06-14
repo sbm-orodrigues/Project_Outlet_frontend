@@ -13,7 +13,7 @@ export class CheckoutPriceComponent {
 
 
   public ngOnInit(){
-    ShoppingCart.getAll().forEach(i => {
+    ShoppingCart.getAll().forEach((i: { count: number; shoeItem: { Price: number; }; }) => {
       this.price += i.count * i.shoeItem.Price;
     });
   }

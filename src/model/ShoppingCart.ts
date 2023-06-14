@@ -1,8 +1,16 @@
+import { TesteServiceService } from 'src/service/TesteService.service';
 import { ShoeItem } from "./ShoeItem";
-import { ShoeItemData } from "./ShoeItemData";
 import { ShoeOrder } from "./ShoeOrder";
 
 export class ShoppingCart {
+  static shoeItem: any;
+
+  constructor(private testeServiceService: TesteServiceService){
+    this.testeServiceService = testeServiceService;
+
+
+  }
+
     private static readonly STORAGE_KEY = "ShoppingCart";
     private static shoeOrderList: ShoeOrder[] = [];
 
@@ -40,6 +48,7 @@ export class ShoppingCart {
     }
 
     private static addToCart(shoeOrder: ShoeOrder):void{
+      debugger
         let flag: boolean = false;
         this.shoeOrderList.forEach(i =>{
             console.log("Adicionando ao carrinho:", shoeOrder, i);
@@ -56,16 +65,23 @@ export class ShoppingCart {
     }
 
     public static addById(itemId: number, shoeSize: string):void {
-        if (!ShoeItemData.has(itemId)) {
-            console.error(`Item com ID ${itemId} não encontrado em ShoeItemData:`, ShoeItemData);
-            return;
-        }
-        const shoeItem = ShoeItemData.getById(itemId);
-        const shoeOrder = new ShoeOrder(shoeItem, shoeSize, 1);
-        this.addToCart(shoeOrder);
-        this.saveToStorage();
-        this.logDebug();
-    }
+      // if (!ShoeItemData.has(itemId)) {
+      //     console.error(`Item com ID ${itemId} não encontrado em ShoeItemData:`, ShoeItemData);
+      //     return;
+      // }
+      // let shoeItem: ShoeItem|any;
+      // this.testeServiceService.getShoeById(itemId).subscribe(
+      //   (shoeItem: ShoeItem) => {
+      //     const shoeOrder = new ShoeOrder(shoeItem, shoeSize, 1);
+      //     this.addToCart(shoeOrder);
+      //     this.saveToStorage();
+      //     this.logDebug();
+      //   },
+      //   (error: any) => {
+      //     console.log(error);
+      //   }
+      // );
+  }
 
     public static getAll(): ShoeOrder[] {
         return this.shoeOrderList;
@@ -108,5 +124,6 @@ export class ShoppingCart {
             this.saveToStorage();
         }
     }
+  }
 
-}
+

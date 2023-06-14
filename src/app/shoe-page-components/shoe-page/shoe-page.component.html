@@ -6,23 +6,53 @@
     <br>
     <div class="BuyShoe">
         <div class="ShoeImage">
-            <img src="{{shoe?.PicturePath}}">
-            <p class="ShoeTextDescription">
-                {{shoe === null || shoe.Description.length <=0 ?"( Não encontramos descrição... )" :shoe.Description}}
+            <img src="{{shoe?.photo}}">
+            <p class="ShoeTextDescription" *ngFor="let item of shoe.ratings">
+               <strong>{{item.length <=0 ?"( Não encontramos avaliações... )" :item.title}}</strong>
+                <br>
+                {{item.length <=0 ?"( Não encontramos avaliações... )" :item.content}}
+                <br>
+                <br>
+                {{item.length <=0 ?"( Não encontramos avaliações... )" :item.author_name}}
             </p>
         </div>
 
-        <div class="ShoeDescription">
-            <p class="ShoeName">{{shoe?.Name}}</p>
+        <div  class="ShoeDescription">
+            <p class="ShoeName" id="teste">{{shoe?.shoes_name}}</p>
             <p class="ShoeGender">
-                {{shoe?.getGenderDescription()}} sobre {{shoe?.Brand}}
+                <!-- {{shoe?.getGenderDescription()}} sobre {{shoe?.brand}} -->
             </p>
-            <p class="ShoePrice">{{shoe?.Price}} R$.</p>
+            <p class="ShoePrice">R$ {{shoe?.price}}</p>
             <p class="SelectSize">Selecione o tamanho:</p>
             <p class="SizeButtons">
                 <app-size-buttons [notification]="notification" [shoe]="shoe"></app-size-buttons>
             </p>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="recomendacao">
+              <label><b>Você recomendaria este produto?</b></label>
+              <br><br>
+              <label for="sim"><input type="radio" id="sim" name="opcao" value="sim">Sim</label>
+              <label for="nao"><input type="radio" id="nao" name="opcao" value="nao">Não</label>
+          </div>
+
+          <div class="cla_txt">
+              <label for="txtava"><b>Partilha a tua experiência</b></label>
+              <div>Conte a outras pessoas mais sobre o produto. E quanto à qualidade? Ou o conforto?</div>
+              <br>
+              <textarea name="areadetexto" id="txtava" cols="30" rows="10">Sua avaliação...</textarea>
+              <label for="txtava2"><b>Qual é a tua opinião numa frase?</b></label>
+              <textarea name="areadetexto" id="txtava2" cols="30" rows="3"></textarea>
+          </div>
         </div>
+
+    </div>
+    <div *ngIf="data">ng --version
+      <p>ID: {{ data.id }}</p>
+      <p>Title: {{ data.title }}</p>
+      <p>Completed: {{ data.completed }}</p>
     </div>
     <app-footer-bar></app-footer-bar>
 </body>

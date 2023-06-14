@@ -1,8 +1,9 @@
+import { TesteServiceService } from './../../../service/TesteService.service';
 import { Component } from '@angular/core';
 import { Colors, Genders, ShoeItem } from 'src/model/ShoeItem';
-import { ShoeItemData } from 'src/model/ShoeItemData';
 import { ShoppingCart } from 'src/model/ShoppingCart';
 import { ActivatedRoute, Router } from '@angular/router';
+import { first } from 'rxjs';
 
 @Component({
   selector: 'app-shoes-list',
@@ -15,8 +16,11 @@ export class ShoesListComponent {
   public pageNumber:number = 1;
   public gender:string = 'A';
   public maxPage:number=1;
+  shoesList: ShoeItem[] | undefined;
 
-  public constructor(private routerConnection: Router, private activatedRoute: ActivatedRoute) { 
+  public constructor(private routerConnection: Router,
+    private testeServiceService: TesteServiceService,
+    private activatedRoute: ActivatedRoute) {
     let g:string|null = null;
     let p:string|null = null;
     let price:string|null = null;
@@ -56,8 +60,8 @@ export class ShoesListComponent {
         case 'F':
         this.loadWomen();
         break;
-        case 'K':
-        this.loadKids();
+        case 'U':
+        this.loadUnissex();
         break;
         default:
         this.loadAll();
@@ -86,7 +90,7 @@ export class ShoesListComponent {
     });
   }
 
-  
+
   private findItemsOnPage(pageString: string|null){
     this.maxPage = Math.floor( 1+(this.displayedShoes!.size/ShoesListComponent.ITEMS_PER_PAGE));
 
@@ -94,7 +98,7 @@ export class ShoesListComponent {
       const page:number = Number.parseInt(pageString);
       if(Number.isNaN(page))return;
       if(page<1)return;
-      
+
       if(page>this.maxPage){
         this.pageNumber = this.maxPage;
       }else{
@@ -117,7 +121,7 @@ export class ShoesListComponent {
 
     const displayedShoesArray:[number,ShoeItem][] = Array.from(this.displayedShoes!.entries());
     this.displayedShoes = new Map(displayedShoesArray.filter(shoe => shoe[1].Color == color));
-    
+
   }
 
   private filterByPrice(startPrice:number, endPrice: number){
@@ -132,25 +136,51 @@ export class ShoesListComponent {
     this.displayedShoes = new Map(displayedShoesArray.filter(shoe => shoe[1].Brand == brand));
   }
 
-  public loadAll(){
-    this.displayedShoes = ShoeItemData.getAll();
-  }
+  public loadAll(): void {
+    this.testeServiceService.getData().subscribe(
+      (data: any) => {
+        this.shoesList = data as any[];
+        console.log(this.shoesList);
+      },
+      (error) => {
+        console.log(error);
+      }
+    )};
 
-  public loadMen(){
-    this.displayedShoes = ShoeItemData.getByGender(Genders.M);
-  }
+    public loadMen(): void {
+      this.testeServiceService.getData().subscribe(
+        (data: any) => {
+          this.shoesList = data.filter((item: any) => item.gender === "Masculino");
+        },
+        (error) => {
+          console.log(error);
+        }
+      )};
 
-  public loadWomen(){
-    this.displayedShoes = ShoeItemData.getByGender(Genders.F);
-  }
+      public loadWomen(): void {
+        this.testeServiceService.getData().subscribe(
+          (data: any) => {
+            this.shoesList = data.filter((item: any) => item.gender === "Feminino");
+            console.log(this.shoesList)
+          },
+          (error) => {
+            console.log(error);
+          }
+        )};
 
-  public loadKids(){
-    this.displayedShoes = ShoeItemData.getByGender(Genders.K);
-  }
+        public loadUnissex(): void {
+          this.testeServiceService.getData().subscribe(
+            (data: any) => {
+              this.shoesList = data.filter((item: any) => item.gender === "Infantil");
+            },
+            (error) => {
+              console.log(error);
+            }
+          )};
 
-  public addToCart(id:number){
-    ShoppingCart.addById(id, "38");
-  }
+  // public addToCart(id:number){
+  //   ShoppingCart.addById(id, "38");
+  // }
 
   public buyShoe(id: number) {
     this.routerConnection.navigate(['/shoe-page', id]);
@@ -181,11 +211,11 @@ export class ShoesListComponent {
     const text:string = (value as HTMLInputElement).value;
 
     const intValue:number = parseInt(text, 10);
-  
+
     if (isNaN(intValue) || intValue < 1) {
       return 0;
     }
-  
+
     return intValue;
   }
 

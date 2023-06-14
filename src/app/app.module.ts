@@ -38,6 +38,7 @@ import { PaypalConfigService } from 'src/service/PaypalConfigService';
 import { NgxPayPalModule } from 'ngx-paypal';
 import { PrivacyPolicyPageComponent } from './information-pages/privacy-policy-page/privacy-policy-page.component';
 import { BannerCarouselComponent } from './store-components/banner-carrossel/banner-carrossel.component';
+import { TesteServiceService } from 'src/service/TesteService.service';
 
 
 @NgModule({
@@ -82,7 +83,8 @@ import { BannerCarouselComponent } from './store-components/banner-carrossel/ban
   ],
   providers: [
     TotalPriceService,
-    PaypalConfigService
+    PaypalConfigService,
+    TesteServiceService
   ],
   bootstrap: [AppComponent]
 })
